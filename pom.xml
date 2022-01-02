@@ -1,4 +1,7 @@
-
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <name>Maven Default Project</name>
+  
   <repositories>
     <repository>
       <id>central</id>
