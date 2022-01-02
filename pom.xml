@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>kms-api-examples</groupId>
+  <groupId>kms-api-examples/groupId>
   <artifactId>kms-api-examples</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
@@ -8,21 +8,21 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.3.2</version>
-			<type>jar</type>
+			<type>war</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient-cache</artifactId>
 			<version>4.3.2</version>
-			<type>jar</type>
+			<type>war</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
 			<version>4.3.2</version>
-			<type>jar</type>
+			<type>war</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
