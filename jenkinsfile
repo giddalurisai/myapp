@@ -26,10 +26,25 @@ pipeline {
     }
 }
 	stage('Artifact uploader') {
-		steps {
-		script {
-		def mavenPom file = readMavenPom 'pom.xml'
-		nexusArtifactUploader artifacts: [[artifactId: 'hello-world-war', classifier: '', file: "/home/ec2-user/workspace/saipipeline/target/hello-world-war-${mavenPom.version}.war", type: 'war']], credentialsId: 'sai-nexus-cred', groupId: 'com.efsavage', nexusUrl: '3.110.20.247:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'sai', version: "${mavenPom.version}"
+		steps{
+		script{
+		def mavenPom = readMavenPom 'pom.xml'
+		nexusArtifactUploader artifacts: 
+		[
+		[
+		artifactId: 'hello-world-war',
+		classifier: '',
+		file: "/home/ec2-user/workspace/saipipeline/target/hello-world-war-${mavenPom.version}.war",
+		type: 'war'
+		]
+		],
+		credentialsId: 'sai-nexus-cred',
+		groupId: 'com.efsavage',
+		nexusUrl: '3.110.20.247:8081', 
+		nexusVersion: 'nexus3', 
+		protocol: 'http', 
+		repository: 'sai',
+		version: "${mavenPom.version}"
 	}		
 	}
 }
