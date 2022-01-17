@@ -30,5 +30,10 @@ pipeline {
 		deploy adapters: [tomcat8(credentialsId: 'tom_CRED_sai', path: '', url: 'http://35.154.244.119:8080')], contextPath: 'kumar', war: '**/*.war'
 }
 }
+	stage('Artifact uploader') {
+		steps {
+		nexusArtifactUploader artifacts: [[artifactId: 'hello-world-war', classifier: '', file: '/home/ec2-user/workspace/sai/target/hello-world-war-2.0.4.war', type: 'war']], credentialsId: 'sai-nexus-cred', groupId: 'com.efsavage', nexusUrl: '3.110.20.247:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'sai', version: '2.0.4'
 }		
+}
+}
 }
