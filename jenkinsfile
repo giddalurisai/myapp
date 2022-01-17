@@ -1,5 +1,8 @@
-
 pipeline {
+	parameters {
+  choice choices: ['dev', 'stag', 'master'], description: 'please select Branch', name: 'Branch'
+}
+
     agent {
   label 'sai_slave'
 }
@@ -14,7 +17,7 @@ pipeline {
         }
 		stage ('checkout') {
 		steps {
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitHUBCRED', url: 'https://github.com/giddalurisai/myapp.git']]])
+		checkout([$class: 'GitSCM', branches: [[name: "*/${Branch}"]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitHUBCRED', url: 'https://github.com/giddalurisai/myapp.git']]])
 		}
 		}
 		stage('build') {
@@ -29,4 +32,3 @@ pipeline {
 }
 }		
 }
-
